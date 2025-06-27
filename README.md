@@ -30,9 +30,9 @@
 10. [Documento a Emitir](#10-documento-a-emitir)  
 11. [ANEXOS](#11-anexos)  
     - [11.1. Preparación del Entorno](#111-preparación-del-entorno)  
-    - [11.2. Visualización del WordPress](#112-visualización-del-wordpress)  
-    - [11.3. Matriz de Riesgos](#113-matriz-de-riesgos)  
-    - [11.4. Examen y Hallazgos](#114-examen-y-hallazgos)  
+    - [11.2. Visualización del WordPress](#112-visualización-del-wordpress) 
+    - [11.3. Examen y Hallazgos](#113-examen-y-hallazgos)  
+    - [11.4. Matriz de Riesgos](#114-matriz-de-riesgos)  
 
 ---
 
