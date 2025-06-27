@@ -252,7 +252,7 @@ Una vez que se hayan levantado todas las VMs podrás acceder a Wordpress en la p
 
 ![alt text](evidencias/WordPress.png)
 
-### 11.4. Examen y Hallazgos
+### 11.3. Examen y Hallazgos
 
 ### Exposición de Credenciales en Código Fuente
 
@@ -369,15 +369,14 @@ Una vez que se hayan levantado todas las VMs podrás acceder a Wordpress en la p
 
 ---
 
-### 11.3 Matriz de Riesgos  
-
 ## 11.4. Matriz de Riesgos
 
-| Riesgo Identificado                    | Causa Específica (Evidencia Técnica / Anexo)                                                              | Nivel de Riesgo | Probabilidad de Ocurrencia (%) | Impacto                                                                                                                                  |
-|----------------------------------------|------------------------------------------------------------------------------------------------------------|-----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Configuración Insegura de SSL/TLS     | Soporte de protocolos TLSv1 y TLSv1.1 considerados inseguros según estándares actuales. Ubicación: `cookbooks/database/recipes/ubuntu.rb`| Medio           | 75%                           | Medio                                       |
-| Ausencia de Control de Versiones de Software | Instalación no controlada de versiones que puede introducir vulnerabilidades no probadas. Ubicación: `cookbooks/proxy/templates/default/ubuntu.conf.erb`                   | Medio           | 80%                           | Medio                                   |
-| Falta de Centralización de Logs       | Dificultad para monitorear y detectar incidentes de seguridad en tiempo real. Ubicación: `cookbooks/wordpress/recipes/ubuntu_wp.rb`                              | Bajo            | 60%                           | Bajo                                               |
-| Ausencia de Separación de Ambientes   | Mismo código y configuración para todos los ambientes sin distinción. Ubicacion: `cookbooks/proxy/templates/default/ubuntu.conf.erb`                                     | Alto            | 85%                           | Alto              |
-| Exposición de Puertos sin Restricción | Configuración permisiva de firewall sin restricciones específicas por ambiente. Ubicacion: `Vagrantfile`                           | Medio           | 70%                           |Medio                           |
-| Ausencia de Gestión Segura de Secretos| Ausencia de un sistema seguro de gestión de secretos como Chef Vault o HashiCorp Vault. Ubicacion: `cookbooks/proxy/recipes/default.rb`                  | Alto            | 95%                           | Alto    |
+| Riesgo Identificado                      | Causa Específica (Evidencia Técnica / Anexo)                                                            | Nivel de Riesgo | Probabilidad de Ocurrencia (%) | Impacto |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------|-----------------|-------------------------------|---------|
+| Exposición de Credenciales en Código Fuente | Exposición de credenciales por defecto que podrían ser utilizadas en producción. Ubicación: `cookbooks/database/recipes/ubuntu.rb`                         | Alto            | 90%                           | Alto    |
+| Configuración Insegura de SSL/TLS       | Soporte de protocolos TLSv1 y TLSv1.1 considerados inseguros según estándares actuales. Ubicación: `cookbooks/proxy/templates/default/ubuntu.conf.erb`                 | Medio           | 75%                           | Medio   |
+| Ausencia de Control de Versiones de Software | Instalación no controlada de versiones que puede introducir vulnerabilidades no probadas. Ubicación: `cookbooks/wordpress/recipes/ubuntu_wp.rb`              | Medio           | 80%                           | Medio   |
+| Falta de Centralización de Logs         | Dificultad para monitorear y detectar incidentes de seguridad en tiempo real. Ubicación: `cookbooks/proxy/templates/default/ubuntu.conf.erb`                          | Bajo            | 60%                           | Bajo    |
+| Ausencia de Separación de Ambientes     | Mismo código y configuración para todos los ambientes sin distinción. Ubicación: `Vagrantfile`                                  | Alto            | 85%                           | Alto    |
+| Exposición de Puertos sin Restricción   | Configuración permisiva de firewall sin restricciones específicas por ambiente. Ubicación: `cookbooks/proxy/recipes/default.rb`                         | Medio           | 70%                           | Medio   |
+| Ausencia de Gestión Segura de Secretos  | Ausencia de un sistema seguro de gestión de secretos como Chef Vault o HashiCorp Vault. Ubicación: `cookbooks/wordpress/attributes/default.rb`                 | Alto            | 95%                           | Alto    |
